@@ -13,6 +13,31 @@ function circularGraph(n, len) {
 	return graph;
 }
 
+function cerny(n) {
+	var states = [];
+	for (var i=1; i<=n; i++) {
+		states.push(i.toString());
+	}
+	
+	var a = {};
+	var b = {};
+	a[n] = 1;
+	b[n] = 1;
+	for (var i=1; i<n; i++) {
+		a[i] = i+1;
+		b[i] = i;
+	}
+	var cernyn = {
+		"states":states,
+		"alpha":"a b".split(),
+		"a":a,
+		"b":b,
+		"graph":circularGraph(n,17)
+	};
+	return cernyn;
+}
+
+
 var kari = {
 	"states":"1 2 3 4 5 6".split(" "),
 	"alpha":"a b".split(" "),
