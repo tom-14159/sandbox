@@ -23,7 +23,7 @@ var kari = {
 
 function drawSpan(svg, automat, px, py, span) {
 	var g = svg.group({stroke: 'black', strokeWidth: 2});
-	for (var i=1; i<=6; i++) {
+	for (var i=1; i<=automat.states.length; i++) {
 		svg.circle(g, px+automat.graph[i][0], py+automat.graph[i][1], 2);
 	}
 
