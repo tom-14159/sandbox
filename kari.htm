@@ -1,0 +1,82 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/jquery.svg.css"> 
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+
+<script type="text/javascript">
+function circularGraph(n, len) {
+	var graph = {};
+	for (var i=1; i<=n; i++) {
+		graph[i] = [Math.sin(i*2*Math.PI/n)*len+len, Math.cos(i*2*Math.PI/n)*len+len];
+	}
+	return graph;
+}
+
+var kari = {
+	"states":"1 2 3 4 5 6".split(" "),
+	"alpha":"a b".split(" "),
+	"a":{ 1:2, 2:3, 3:1, 4:6, 5:4, 6:5 },
+	"b":{ 1:1, 2:2, 3:4, 4:3, 5:3, 6:6 },
+	"graph":circularGraph(6,17)
+};
+
+function drawSpan(svg, automat, px, py, span) {
+	var g = svg.group({stroke: 'black', strokeWidth: 2});
+	for (var i=1; i<=6; i++) {
+		svg.circle(g, px+automat.graph[i][0], py+automat.graph[i][1], 2);
+	}
+
+	if (span) {
+		for (var i in span) {
+			var b = span[i][0];
+			var e = span[i][1];
+			svg.line(g, px+automat.graph[b][0], py+automat.graph[b][1], px+automat.graph[e][0], py+automat.graph[e][1]);
+		}
+	}
+}
+
+function transSpan(automat, prechod, span) {
+	var nova = [];
+	for (var i = 0; i<span.length; i++) {
+		nova.push([automat[prechod][span[i][0]],automat[prechod][span[i][1]]]);
+	}
+	return nova;
+}
+
+function drawTransSpan(automat, word, span) {
+	return function(svg) {
+		var tss = word.split("");
+		for (var i=0; i<tss.length; i++) {
+			drawSpan(svg, automat, i*70+70, 70, span);
+			span = transSpan(automat, tss[i], span);
+		}
+		drawSpan(svg, automat, tss.length*70+70, 70, span);
+	}
+}
+
+$(document).ready(function(){
+	$("#draw").click(function(){
+		$("svg").children().remove();
+		var kostra = JSON.parse("["+$("input[name=kostra]").val()+"]");
+		var slovo = $("input[name=slovo]").val();
+		$("svg").svg( drawTransSpan(kari,slovo,kostra) )
+	})
+})
+
+</script>
+
+</head>
+
+<body>
+
+<dl>
+	<dt>Kostra<dt><dd><input name="kostra" value="[2,3], [1,4], [3,4], [4,5], [1,6]" style="width:800px"></dd>
+	<dt>Slovo<dt><dd><input name="slovo" value="baabab"></dd>
+	<dt><input type="submit" value="vykresli" id="draw"></dt>
+</dl>
+<svg id="svg" width="2000" height="1000"></svg>
+
+</body>
+</html>
+
