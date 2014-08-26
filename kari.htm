@@ -66,9 +66,10 @@ function drawTransSpan(automat, word, span) {
 $(document).ready(function(){
 	$("#draw").click(function(){
 		$("svg").children().remove();
+		var automat = window[ $("input[name=automat]:checked").val() ];
 		var kostra = JSON.parse("["+$("input[name=kostra]").val()+"]");
 		var slovo = $("input[name=slovo]").val();
-		$("svg").svg( drawTransSpan(kari,slovo,kostra) )
+		$("svg").svg( drawTransSpan(automat,slovo,kostra) )
 	})
 })
 
@@ -81,6 +82,11 @@ $(document).ready(function(){
 <dl>
 	<dt>Kostra<dt><dd><input name="kostra" value="[2,3], [1,4], [3,4], [4,5], [1,6]" style="width:800px"></dd>
 	<dt>Slovo<dt><dd><input name="slovo" value="baabab"></dd>
+	<dt>Automat</dt>
+	<dd>
+		<label><input type="radio" name="automat" value="kari" checked="checked"> kari</label>&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="automat" value="cerny4"> cerny4</label>
+	</dd>
 	<dt><input type="submit" value="vykresli" id="draw"></dt>
 </dl>
 <svg id="svg" width="2000" height="1000"></svg>
