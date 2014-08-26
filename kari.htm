@@ -21,6 +21,14 @@ var kari = {
 	"graph":circularGraph(6,17)
 };
 
+var cerny4 = {
+	"states":"1 2 3 4".split(" "),
+	"alpha":"a b".split(" "),
+	"a":{ 1:1, 2:2, 3:3, 4:1 },
+	"b":{ 1:2, 2:3, 3:4, 4:1 },
+	"graph":circularGraph(4,17)
+};
+
 function drawSpan(svg, automat, px, py, span) {
 	var g = svg.group({stroke: 'black', strokeWidth: 2});
 	for (var i=1; i<=automat.states.length; i++) {
