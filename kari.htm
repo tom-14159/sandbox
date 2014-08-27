@@ -7,8 +7,8 @@
 <script type="text/javascript">
 function circularGraph(n, len) {
 	var graph = {};
-	for (var i=1; i<=n; i++) {
-		graph[i] = [Math.sin(i*2*Math.PI/n)*len+len, Math.cos(i*2*Math.PI/n)*len+len];
+	for (var i=0; i<n; i++) {
+		graph[i+1] = [Math.sin(i*2*Math.PI/n)*len+len, -Math.cos(i*2*Math.PI/n)*len+len];
 	}
 	return graph;
 }
@@ -53,6 +53,8 @@ var cerny4 = {
 	"b":{ 1:2, 2:3, 3:4, 4:1 },
 	"graph":circularGraph(4,17)
 };
+
+var c7 = cerny(7);
 
 function drawSpan(svg, automat, px, py, span) {
 	var g = svg.group({stroke: 'black', strokeWidth: 2});
@@ -110,7 +112,8 @@ $(document).ready(function(){
 	<dt>Automat</dt>
 	<dd>
 		<label><input type="radio" name="automat" value="kari" checked="checked"> kari</label>&nbsp;&nbsp;&nbsp;&nbsp;
-		<label><input type="radio" name="automat" value="cerny4"> cerny4</label>
+		<label><input type="radio" name="automat" value="cerny4"> cerny4</label>&nbsp;&nbsp;&nbsp;&nbsp;
+		<label><input type="radio" name="automat" value="c7"> cerny7</label>
 	</dd>
 	<dt><input type="submit" value="vykresli" id="draw"></dt>
 </dl>
