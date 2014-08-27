@@ -56,8 +56,8 @@ var cerny4 = {
 
 function drawSpan(svg, automat, px, py, span) {
 	var g = svg.group({stroke: 'black', strokeWidth: 2});
-	for (var i=1; i<=automat.states.length; i++) {
-		svg.circle(g, px+automat.graph[i][0], py+automat.graph[i][1], 2);
+	for (var i in automat.states) {
+		svg.circle(g, px+automat.graph[ automat.states[i] ][0], py+automat.graph[ automat.states[i] ][1], 2);
 	}
 
 	if (span) {
