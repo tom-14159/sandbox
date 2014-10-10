@@ -9,6 +9,7 @@
 
 #define USART_BAUDRATE 9600
 #define UBRR_VALUE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
+#define BUFF_LEN 13
 
 PROGMEM const char usbHidReportDescriptor[52] = { /* USB report descriptor, size must match usbconfig.h */
 	0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
@@ -32,7 +33,7 @@ PROGMEM const char usbHidReportDescriptor[52] = { /* USB report descriptor, size
 };
 
 static const uchar  keyReport[256][2] PROGMEM = {
-	{0, 20}, {0, 20}, {0, 0x2c}, {0, 0}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20},
+	{0, 0}, {0, 20}, {0, 0x2c}, {0, 0x28}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20},
 	{0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20},
 	{0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20},
 	{0, 0x62}, {0, 0x60}, {0, 0x5c}, {0, 6}, {0, 0x5a}, {0, 4}, {0, 0x5e}, {0, 8}, {0, 0x59}, {0, 0x61}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20}, {0, 20},
@@ -81,60 +82,65 @@ void USART0Init(void) {
 	UCSR0B |= (1<<RXEN0)|(0<<TXEN0);
 }
 
-int __attribute__((noreturn)) main(void) {
-	uchar   i;
+char buffer[BUFF_LEN+1];
+uchar bl = 0;
+uchar bc = 0;
 
+int __attribute__((noreturn)) main(void) {
 	USART0Init();
 	wdt_enable(WDTO_1S);
 
 	odDebugInit();
 	usbInit();
 	usbDeviceDisconnect();  /* enforce re-enumeration, do this while interrupts are disabled! */
-	i = 0;
-
-	uchar j = 0;
-
-	while(--i){             /* fake USB disconnect for > 250 ms */
-		wdt_reset();
-		_delay_ms(1);
-	}
+	_delay_ms(250);
 	usbDeviceConnect();
 	sei();
 
-uchar c[64];
-uchar l=0;
-uchar it=0;
+	OCR0A = 0xFF;
+	TCCR0A = 0x02;
+	TIFR0 |= 0x01;
+	TIMSK0 = 0x01;
+	TCCR0B = 0x05;
+
+	uchar c;
 
 	for(;;){                /* main event loop */
-		wdt_reset();
-		usbPoll();
-		if (l) {
-			if(usbInterruptIsReady()){
-				/* called after every poll of the interrupt endpoint */
-				buildReport(c[it]);
+		while ( !(UCSR0A & (1<<RXC0)) ) {}
+		c = UDR0;
+		while (c == 2) {
+			if (bl == BUFF_LEN) break;
 
-				it++;
-				if (it == l) {
-					it = 0;
-					l = 0;
-				}
-				
-				usbSetInterrupt((void *)&reportBuffer, sizeof(reportBuffer));
-			}
-		} else {
-			if (UCSR0A&(1<<RXC0)) {
-				c[0] = UDR0;
-				l++;
-				while (c[l] != 4) {
-					while ( !(UCSR0A & (1<<RXC0)) ) {};
-					c[l] = UDR0;
-					l++;
+			while (c != 3) {
+				while ( !(UCSR0A & (1<<RXC0)) ) {}
+				c = UDR0;
+				buffer[bl] = c;
+				bl ++;
 
-					wdt_reset();
-					if (l==64) break;
-				}
+				if (bl == BUFF_LEN) break;
 			}
 		}
 	}
 }
 
+SIGNAL(TIMER0_OVF_vect)
+{
+	wdt_reset();
+	usbPoll();
+
+	if (bl) {
+		if(usbInterruptIsReady()){
+			if (bl <= bc) {
+				bl = bc = 0;
+				buildReport(0);
+				usbSetInterrupt((void *)&reportBuffer, sizeof(reportBuffer));
+			} else {
+				buildReport(buffer[bc]);
+				usbSetInterrupt((void *)&reportBuffer, sizeof(reportBuffer));
+
+				bc ++;
+			}
+		}
+	}
+
+}
