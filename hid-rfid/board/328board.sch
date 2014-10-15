@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Ut 14. október 2014, 14:14:01 CEST
+EESchema Schematic File Version 2  date St 15. október 2014, 12:28:05 CEST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -36,7 +36,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "14 oct 2014"
+Date "15 oct 2014"
 Rev ""
 Comp ""
 Comment1 ""
@@ -45,112 +45,110 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 Wire Wire Line
-	4200 2000 5825 2000
-Connection ~ 4500 950 
+	5475 2000 5825 2000
 Wire Wire Line
-	5675 2425 5675 950 
+	4650 1950 4650 1800
 Wire Wire Line
-	5675 950  1225 950 
+	4875 2625 4550 2625
 Wire Wire Line
-	4875 2625 4600 2625
+	4550 2625 4550 2550
+Connection ~ 4550 1425
 Wire Wire Line
-	4600 2625 4600 1425
+	4550 2050 4550 1425
 Wire Wire Line
-	4600 1425 2650 1425
+	5675 2525 5825 2525
 Wire Wire Line
-	2650 1425 2650 1800
+	5825 2525 5825 2000
+Connection ~ 4500 4200
 Wire Wire Line
-	2650 1800 2800 1800
+	5675 2625 5675 4200
 Wire Wire Line
-	4875 2425 4725 2425
+	5675 4200 1625 4200
 Wire Wire Line
-	4725 2425 4725 1900
+	4875 2525 4650 2525
 Wire Wire Line
-	4725 1900 4200 1900
-Connection ~ 1625 2450
-Connection ~ 2900 4200
+	4650 1800 4200 1800
+Connection ~ 3500 950 
 Wire Wire Line
-	1625 1750 1625 4200
-Connection ~ 3500 4200
+	4500 950  4500 3600
+Connection ~ 4025 4200
 Wire Wire Line
-	4500 4200 4500 4000
-Connection ~ 3500 3350
+	4025 4200 4025 3350
 Wire Wire Line
-	3500 3600 3500 3100
+	4025 3350 3650 3350
 Wire Wire Line
-	1625 2450 1075 2450
-Wire Wire Line
-	1075 2250 2050 2250
-Connection ~ 2050 2150
-Wire Wire Line
-	2050 2250 2050 2000
-Wire Wire Line
-	1225 1600 1225 1500
-Wire Wire Line
-	2600 2150 2800 2150
-Wire Wire Line
-	2600 2350 2800 2350
-Wire Wire Line
-	1075 2150 1225 2150
-Wire Wire Line
-	1225 2150 1225 2000
-Wire Wire Line
-	1225 950  1225 1100
-Wire Wire Line
-	3500 950  3500 1350
-Wire Wire Line
-	2050 2150 2100 2150
-Wire Wire Line
-	2050 1500 2050 950 
-Connection ~ 2050 950 
-Wire Wire Line
-	2100 2350 1075 2350
-Wire Wire Line
-	1625 1350 1625 950 
-Connection ~ 1625 950 
-Wire Wire Line
-	3350 3100 2900 3100
-Wire Wire Line
-	2900 3100 2900 3600
-Connection ~ 2900 3350
-Wire Wire Line
-	2900 4200 2900 4000
+	3650 3350 3650 3100
 Wire Wire Line
 	3500 4200 3500 4000
 Wire Wire Line
-	3650 3100 3650 3350
+	2900 4200 2900 4000
+Connection ~ 2900 3350
 Wire Wire Line
-	3650 3350 4025 3350
+	2900 3600 2900 3100
 Wire Wire Line
-	4025 3350 4025 4200
-Connection ~ 4025 4200
+	2900 3100 3350 3100
+Connection ~ 1625 950 
 Wire Wire Line
-	4500 950  4500 3600
-Connection ~ 3500 950 
+	1625 1350 1625 950 
 Wire Wire Line
-	4200 1800 4650 1800
+	2100 2350 1075 2350
+Connection ~ 2050 950 
 Wire Wire Line
-	4650 1800 4650 2525
+	2050 1500 2050 950 
 Wire Wire Line
-	4650 2525 4875 2525
+	2050 2150 2100 2150
 Wire Wire Line
-	1625 4200 5675 4200
+	3500 950  3500 1350
 Wire Wire Line
-	5675 4200 5675 2625
-Connection ~ 4500 4200
+	1225 1100 1225 950 
 Wire Wire Line
-	5825 2000 5825 2525
+	1225 2000 1225 2150
 Wire Wire Line
-	5825 2525 5675 2525
-$Comp
-L CONN_3X2 ISP1
-U 1 1 543D11D8
-P 5275 2575
-F 0 "ISP1" H 5275 2825 50  0000 C CNN
-F 1 "CONN_3X2" V 5275 2625 40  0000 C CNN
-	1    5275 2575
-	1    0    0    -1  
-$EndComp
+	1225 2150 1075 2150
+Wire Wire Line
+	2600 2350 2800 2350
+Wire Wire Line
+	2600 2150 2800 2150
+Wire Wire Line
+	1225 1600 1225 1500
+Wire Wire Line
+	2050 2000 2050 2250
+Connection ~ 2050 2150
+Wire Wire Line
+	2050 2250 1075 2250
+Wire Wire Line
+	1625 2450 1075 2450
+Wire Wire Line
+	3500 3600 3500 3100
+Connection ~ 3500 3350
+Wire Wire Line
+	4500 4200 4500 4000
+Connection ~ 3500 4200
+Wire Wire Line
+	1625 4200 1625 1750
+Connection ~ 2900 4200
+Connection ~ 1625 2450
+Wire Wire Line
+	4200 1900 4725 1900
+Wire Wire Line
+	4725 1900 4725 2425
+Wire Wire Line
+	4725 2425 4875 2425
+Wire Wire Line
+	2800 1800 2650 1800
+Wire Wire Line
+	2650 1800 2650 1425
+Wire Wire Line
+	1225 950  5675 950 
+Wire Wire Line
+	5675 950  5675 2425
+Connection ~ 4500 950 
+Wire Wire Line
+	2650 1425 4550 1425
+Wire Wire Line
+	4650 2525 4650 2450
+Wire Wire Line
+	4200 2000 4975 2000
 $Comp
 L USB_2 J1
 U 1 1 543D0CCA
@@ -162,6 +160,42 @@ F 5 "D+" H 1175 2350 50  0001 C CNN "Data+"
 F 6 "D-" H 1175 2250 50  0001 C CNN "Data-"
 F 7 "GND" H 1200 2150 50  0001 C CNN "Ground"
 	1    875  2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L R JMP3
+U 1 1 543E4AE0
+P 5225 2000
+F 0 "JMP3" V 5305 2000 50  0000 C CNN
+F 1 "0R" V 5225 2000 50  0000 C CNN
+	1    5225 2000
+	0    1    1    0   
+$EndComp
+$Comp
+L R jmp2
+U 1 1 543E4ADC
+P 4650 2200
+F 0 "jmp2" V 4730 2200 50  0000 C CNN
+F 1 "0R" V 4650 2200 50  0000 C CNN
+	1    4650 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L R JMP1
+U 1 1 543E4AD9
+P 4550 2300
+F 0 "JMP1" V 4630 2300 50  0000 C CNN
+F 1 "0R" V 4550 2300 50  0000 C CNN
+	1    4550 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_3X2 ISP1
+U 1 1 543D11D8
+P 5275 2575
+F 0 "ISP1" H 5275 2825 50  0000 C CNN
+F 1 "CONN_3X2" V 5275 2625 40  0000 C CNN
+	1    5275 2575
 	1    0    0    -1  
 $EndComp
 $Comp

@@ -1,4 +1,4 @@
-update=Ut 14. október 2014, 14:31:40 CEST
+update=St 15. október 2014, 12:44:31 CEST
 version=1
 last_client=pcbnew
 [cvpcb]
@@ -93,7 +93,7 @@ DrawLar=150
 EdgeLar=150
 TxtLar=120
 MSegLar=150
-LastNetListRead=328board.net
+LastNetListRead=328board-2.net
 [pcbnew/libraries]
 LibDir=
 LibName1=sockets
