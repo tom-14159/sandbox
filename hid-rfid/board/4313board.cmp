@@ -1,0 +1,122 @@
+Cmp-Mod V01 Created by CvPCB (2011-05-25)-stable date = St 15. október 2014, 18:13:40 CEST
+
+BeginCmp
+TimeStamp = /543E9593;
+Reference = ANT1;
+ValeurCmp = CONN_2;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E9362;
+Reference = C1;
+ValeurCmp = 4u7;
+IdModule  = C1V7;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E9475;
+Reference = C2;
+ValeurCmp = 27p;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E9477;
+Reference = C3;
+ValeurCmp = 27p;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E8A52;
+Reference = D1;
+ValeurCmp = 3V6;
+IdModule  = D3;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E8A58;
+Reference = D2;
+ValeurCmp = 3V6;
+IdModule  = D3;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E8B83;
+Reference = IC0;
+ValeurCmp = ATTINY4313;
+IdModule  = DIP-20__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E9A54;
+Reference = JP1;
+ValeurCmp = JUMPER;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E9AD7;
+Reference = P1;
+ValeurCmp = CONN_3X2;
+IdModule  = pin_array_3x2;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E8C30;
+Reference = R1;
+ValeurCmp = 68R;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E8C3B;
+Reference = R2;
+ValeurCmp = 68R;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E93BD;
+Reference = R3;
+ValeurCmp = 1K5;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E9542;
+Reference = RFID1;
+ValeurCmp = CONN_5;
+IdModule  = SIL-5;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E9557;
+Reference = RFID2;
+ValeurCmp = CONN_2;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E9550;
+Reference = RFID3;
+ValeurCmp = CONN_3;
+IdModule  = SIL-3;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E8A25;
+Reference = USB1;
+ValeurCmp = USB_2;
+IdModule  = SIL-4;
+EndCmp
+
+BeginCmp
+TimeStamp = /543E9453;
+Reference = X1;
+ValeurCmp = CRYSTAL;
+IdModule  = R1;
+EndCmp
+
+EndListe

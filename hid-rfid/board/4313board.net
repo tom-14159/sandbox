@@ -1,0 +1,146 @@
+# EESchema Netlist Version 1.1 created  St 15. október 2014, 18:13:40 CEST
+(
+ ( /543E9593 SIL-2 ANT1 CONN_2
+  ( 1 N-000010 )
+  ( 2 N-000009 )
+ )
+ ( /543E9362 C1V7 C1 4u7
+  ( 1 N-000007 )
+  ( 2 N-000032 )
+ )
+ ( /543E9475 C1 C2 27p
+  ( 1 N-000005 )
+  ( 2 N-000032 )
+ )
+ ( /543E9477 C1 C3 27p
+  ( 1 N-000006 )
+  ( 2 N-000032 )
+ )
+ ( /543E8A52 D3 D1 3V6
+  ( 1 N-000018 )
+  ( 2 N-000019 )
+ )
+ ( /543E8A58 D3 D2 3V6
+  ( 1 N-000019 )
+  ( 2 N-000007 )
+ )
+ ( /543E8B83 DIP-20__300 IC0 ATTINY4313
+  ( 1 N-000031 )
+  ( 2 N-000030 )
+  ( 3 ? )
+  ( 4 N-000005 )
+  ( 5 N-000006 )
+  ( 6 N-000026 )
+  ( 7 ? )
+  ( 8 N-000023 )
+  ( 9 ? )
+  ( 10 N-000032 )
+  ( 11 ? )
+  ( 12 ? )
+  ( 13 ? )
+  ( 14 ? )
+  ( 15 ? )
+  ( 16 ? )
+  ( 17 N-000016 )
+  ( 18 N-000029 )
+  ( 19 N-000008 )
+  ( 20 N-000007 )
+ )
+ ( /543E9A54 SIL-2 JP1 JUMPER
+  ( 1 N-000031 )
+  ( 2 N-000007 )
+ )
+ ( /543E9AD7 pin_array_3x2 P1 CONN_3X2
+  ( 1 N-000029 )
+  ( 2 N-000007 )
+  ( 3 N-000008 )
+  ( 4 N-000016 )
+  ( 5 N-000031 )
+  ( 6 N-000032 )
+ )
+ ( /543E8C30 R4 R1 68R
+  ( 1 N-000026 )
+  ( 2 N-000028 )
+ )
+ ( /543E8C3B R4 R2 68R
+  ( 1 N-000023 )
+  ( 2 N-000027 )
+ )
+ ( /543E93BD R4 R3 1K5
+  ( 1 N-000007 )
+  ( 2 N-000028 )
+ )
+ ( /543E9542 SIL-5 RFID1 CONN_5
+  ( 1 N-000030 )
+  ( 2 ? )
+  ( 3 ? )
+  ( 4 N-000018 )
+  ( 5 N-000032 )
+ )
+ ( /543E9557 SIL-2 RFID2 CONN_2
+  ( 1 N-000009 )
+  ( 2 N-000010 )
+ )
+ ( /543E9550 SIL-3 RFID3 CONN_3
+  ( 1 ? )
+  ( 2 ? )
+  ( 3 ? )
+ )
+ ( /543E8A25 SIL-4 USB1 USB_2
+  ( 1 N-000018 )
+  ( 2 N-000028 )
+  ( 3 N-000027 )
+  ( 4 N-000032 )
+ )
+ ( /543E9453 R1 X1 CRYSTAL
+  ( 1 N-000005 )
+  ( 2 N-000006 )
+ )
+)
+*
+{ Allowed footprints by component:
+$component C1
+ SM*
+ C?
+ C1-1
+$endlist
+$component C2
+ SM*
+ C?
+ C1-1
+$endlist
+$component C3
+ SM*
+ C?
+ C1-1
+$endlist
+$component D1
+ D?
+ SO*
+ SM*
+$endlist
+$component D2
+ D?
+ SO*
+ SM*
+$endlist
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R3
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$endfootprintlist
+}
