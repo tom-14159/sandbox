@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPCB (2011-05-25)-stable date = St 15. október 2014, 18:13:40 CEST
+Cmp-Mod V01 Created by PcbNew date = St 15. říjen 2014, 20:07:53 CEST
 
 BeginCmp
 TimeStamp = /543E9593;
@@ -116,7 +116,7 @@ BeginCmp
 TimeStamp = /543E9453;
 Reference = X1;
 ValeurCmp = CRYSTAL;
-IdModule  = R1;
+IdModule  = C2;
 EndCmp
 
 EndListe
